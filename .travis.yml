@@ -1,0 +1,18 @@
+# gokaygurcan/dockerfile-ab
+
+language: bash
+services: docker
+
+sudo: false
+
+git:
+  depth: 10
+
+before_script: docker --version
+
+script:
+  - docker build --rm -t gokaygurcan/ab:test .
+  - docker run --rm gokaygurcan/ab:test -n 1 -c 1 https://localhost/
+
+notifications:
+  email: false
