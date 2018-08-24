@@ -1,14 +1,20 @@
 # gokaygurcan/dockerfile-ab
 
-FROM gokaygurcan/ubuntu:18.04
+FROM gokaygurcan/ubuntu:latest
 
 LABEL maintainer="Gökay Gürcan <docker@gokaygurcan.com>"
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN sudo apt-get update -q && \
-    sudo apt-get install -y -qq --no-install-recommends \
+RUN set -ex && \
+    apt-get update -qq && \
+    apt-get upgrade -yqq && \
+    apt-get install -yqq --no-install-recommends --no-install-suggests \
     apache2-utils && \
-    sudo rm -rf /var/lib/apt/lists/*
+    apt-get autoclean -yqq && \
+    apt-get autoremove -yqq && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/* && \
+    rm -rf /var/tmp/*
 
 ENTRYPOINT [ "ab" ]

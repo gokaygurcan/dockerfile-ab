@@ -6,13 +6,15 @@ services: docker
 sudo: false
 
 git:
-  depth: 10
+  depth: 1
 
-before_script: docker --version
+before_script:
+  - docker version
+  - docker info
 
 script:
   - docker build --rm -t gokaygurcan/ab:test .
-  - docker run --rm gokaygurcan/ab:test -n 1 -c 1 https://localhost/
+  - docker run --rm gokaygurcan/ab:test -n 1 https://github.com/
 
 notifications:
   email: false
