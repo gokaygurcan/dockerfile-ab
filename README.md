@@ -4,7 +4,7 @@
 
 <h2>Additional packages</h2>
 
-- certbot
+- apache2-utils
 
 <h2>ENTRYPOINT</h2>
 
