@@ -6,6 +6,8 @@ LABEL maintainer="Gökay Gürcan <docker@gokaygurcan.com>"
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
+USER root
+
 RUN set -ex && \
     apt-get update -qq && \
     apt-get upgrade -yqq && \
@@ -16,5 +18,7 @@ RUN set -ex && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/*
+
+USER ubuntu
 
 ENTRYPOINT [ "ab" ]
