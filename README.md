@@ -25,7 +25,3 @@ To start a benchmark
 ```bash
 docker run --rm gokaygurcan/ab -n 1 https://www.github.com/
 ```
-
----
-
-[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg)](https://www.buymeacoffee.com/gokaygurcan)
